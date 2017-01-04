@@ -11,9 +11,9 @@ int main( int argc, char *argv[] )
     while(1)
     {
         if (is_connected()) {
-            printf("\x1b[32mConnected\x1b[0m\n");
+            printf("VPN Status:\t\x1b[32m[√] Connected\x1b[0m\n");
         } else {
-            printf("\x1b[31mNOT connected\x1b[0m\n");
+            printf("VPN Status:\t\x1b[31m[x] NOT connected\x1b[0m\n");
         }
 
         out = sleep(30);
