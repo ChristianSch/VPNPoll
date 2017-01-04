@@ -42,7 +42,7 @@ int is_connected(void)
     CURLcode res;
     long http_code = 0;
     char *user_agent = "User-Agent: vpn-poll";
-    char *url = "http://ovpn-ip.info/index.php";
+    char *url = "https://ovpn-ip.info/index.php";
 
     curl = curl_easy_init();
 
@@ -64,7 +64,7 @@ int is_connected(void)
             curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
 
             if (http_code ==  200) {
-                if (strstr(s.p, "You are connected with") != NULL) {
+                if (strstr(s.p, "Connected to oVPN.to Server") != NULL) {
                     return 1;
                 } else {
                     return 0;
@@ -87,5 +87,3 @@ int is_connected(void)
     }
     curl_easy_cleanup(curl);
 }
-
-
